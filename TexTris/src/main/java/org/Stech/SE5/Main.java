@@ -1,7 +1,10 @@
 package org.Stech.SE5;
 
+import org.Stech.SE5.Controller.RecordController;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        RecordController record = new RecordController();
+        record.setVisible(true);
     }
 }
