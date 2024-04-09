@@ -7,13 +7,16 @@ import javax.swing.text.SimpleAttributeSet;
 import javax.swing.text.StyleConstants;
 import javax.swing.text.StyledDocument;
 import java.awt.*;
+import java.util.ArrayList;
 
 import org.Stech.SE5.Controller.RecordController;
+import org.Stech.SE5.Model.RecordModel;
 
 
 public class RecordView extends JFrame {
     private static RecordController recordController;
     private JButton goToMainBtn;
+    private ArrayList<JTextPane> recordList;
 
     public RecordView(final RecordController controller) {
         super("Record");
@@ -35,18 +38,7 @@ public class RecordView extends JFrame {
         backgroundPane.setOpaque(false);
         recordPanel.add(backgroundPane);
 
-        recordPanel.setLayout(null);
-
-        goToMainBtn = new JButton("Go To Main");
-        goToMainBtn.setBounds(100, 500, 190, 40);
-        goToMainBtn.setBorderPainted(false); // 경계선이 보이지 않도록 설정
-        goToMainBtn.setContentAreaFilled(true); //배경색이 보이도록 설정
-        goToMainBtn.setBackground(Color.GRAY); //배경색은 회색
-        goToMainBtn.setForeground(Color.GREEN); // 버튼 텍스트 색상을 흰색으로 설정합니다.
-        goToMainBtn.setFont(new Font("Arial", Font.BOLD, 20)); //폰트 및 크기 설정
-
-        recordPanel.add(goToMainBtn);
-
+        recordPanel.setLayout(new FlowLayout());
 
         JTextPane titlePane = new JTextPane();
         titlePane.setBounds(30, 20, WIDTH-74, 50);
@@ -79,6 +71,44 @@ public class RecordView extends JFrame {
 
         recordPanel.add(columnNamePane);
 
+
+        goToMainBtn = new JButton("Go To Main");
+        goToMainBtn.setBounds(100, 500, 190, 40);
+        goToMainBtn.setBorderPainted(false); // 경계선이 보이지 않도록 설정
+        goToMainBtn.setContentAreaFilled(true); //배경색이 보이도록 설정
+        goToMainBtn.setBackground(Color.GRAY); //배경색은 회색
+        goToMainBtn.setForeground(Color.GREEN); // 버튼 텍스트 색상을 흰색으로 설정합니다.
+        goToMainBtn.setFont(new Font("Arial", Font.BOLD, 20)); //폰트 및 크기 설정
+
+        recordPanel.add(goToMainBtn);
+
+        recordList = new ArrayList<>();
+
+        System.out.println(RecordModel.rankedRecords.size());
+        for(int i=0; i<Math.min(RecordModel.rankedRecords.size(), 11); i++) {
+            recordList.add(new JTextPane());
+
+            JTextPane individualRecord = new JTextPane();
+            individualRecord.setText((i+1) + " | " +
+                    RecordModel.rankedRecords.get(i).name + " | " +
+                    RecordModel.rankedRecords.get(i).score + " | " +
+                    RecordModel.rankedRecords.get(i).deletedLine + " | " +
+                    //RecordModel.rankedRecords.get(i).gameMode + " | " +
+                    //RecordModel.rankedRecords.get(i).gameDifficulty + " | " +
+                    RecordModel.rankedRecords.get(i).createdAt);
+            individualRecord.setBounds(30,110, WIDTH-74, 30);
+            individualRecord.setEditable(false);
+            individualRecord.setBackground(Color.DARK_GRAY);
+            individualRecord.setForeground(Color.GREEN);
+            individualRecord.setFont(new Font("Arial", Font.CENTER_BASELINE, 15));
+
+            StyledDocument docRecord = individualRecord.getStyledDocument();
+            SimpleAttributeSet centerRecord = new SimpleAttributeSet();
+            StyleConstants.setAlignment(centerRecord, StyleConstants.ALIGN_CENTER);
+            docRecord.setParagraphAttributes(0, docRecord.getLength(), centerRecord, false);
+
+            recordPanel.add(individualRecord);
+        }
 
         recordPanel.setLayout(new BorderLayout());
         recordPanel.setVisible(true);

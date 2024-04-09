@@ -1,16 +1,18 @@
 package org.Stech.SE5.Data;
 
 public class Record implements Comparable<Record> {
-    public int id;
     public int score;
     public int deletedLine;
+    //public String gameMode;
+    //public String gameDifficulty;
     public String createdAt;
     public String name;
 
-    public Record(int id, int score, int deletedLine, String createdAt, String name) {
-        this.id = id;
+    public Record(int score, int deletedLine, String createdAt, String name) {
         this.score = score;
         this.deletedLine = deletedLine;
+        //this.gameMode = gameMode;
+        //this.gameDifficulty = gameDifficulty;
         this.createdAt = createdAt;
         this.name = name;
     }
