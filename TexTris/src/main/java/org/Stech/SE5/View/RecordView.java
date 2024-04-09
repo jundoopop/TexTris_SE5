@@ -96,7 +96,7 @@ public class RecordView extends JFrame {
                     //RecordModel.rankedRecords.get(i).gameMode + " | " +
                     //RecordModel.rankedRecords.get(i).gameDifficulty + " | " +
                     RecordModel.rankedRecords.get(i).createdAt);
-            individualRecord.setBounds(30,110, WIDTH-74, 30);
+            individualRecord.setBounds(30,(110+(i*30)), WIDTH-74, 30);
             individualRecord.setEditable(false);
             individualRecord.setBackground(Color.DARK_GRAY);
             individualRecord.setForeground(Color.GREEN);

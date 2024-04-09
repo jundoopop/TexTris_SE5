@@ -65,5 +65,16 @@ public class RecordModel {
             System.out.println("저장된 기록이 없습니다.");
         }
     }
+
+    public static void clearRecord() {
+        try {
+            FileWriter fw = new FileWriter(path, false); // 파일을 덮어쓰기 모드로 열기
+            fw.write(""); // 파일에 빈 문자열 쓰기
+            fw.close(); // 파일 닫기
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 }
 
