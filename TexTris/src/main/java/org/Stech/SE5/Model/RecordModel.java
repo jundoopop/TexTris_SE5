@@ -10,14 +10,13 @@ public class RecordModel {
     public static ArrayList<Record> rankedRecords = new ArrayList<Record>();
     private final static String path = "Data/record.txt";
 
+    public static void initRecord() {
+        rankedRecords = new ArrayList<Record>();
+        saveRecord();
+    }
     public static void addRecord(int score, int deletedLine, String createdAt, String name) {
         rankedRecords.add(new Record(score, deletedLine, createdAt, name));
         Collections.sort(rankedRecords);
-        saveRecord();
-    }
-
-    public static void initRecord() {
-        rankedRecords = new ArrayList<Record>();
         saveRecord();
     }
 
