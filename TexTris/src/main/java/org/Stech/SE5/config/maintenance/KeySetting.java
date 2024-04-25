@@ -1,11 +1,8 @@
-package org.Stech.SE5.config;
+package org.Stech.SE5.config.maintenance;
 
 import java.awt.event.KeyEvent;
-import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
 
-import static org.Stech.SE5.config.SetConfig.saveConfig;
+import static org.Stech.SE5.config.maintenance.SetConfig.saveConfig;
 
 public class KeySetting {
 

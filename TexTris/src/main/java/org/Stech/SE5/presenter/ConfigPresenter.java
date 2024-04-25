@@ -1,6 +1,6 @@
 package org.Stech.SE5.presenter;
 
-import org.Stech.SE5.view.ConfigView;
+import org.Stech.SE5.View.ConfigView;
 
 
 public class ConfigPresenter implements Presenter {

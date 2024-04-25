@@ -1,16 +1,12 @@
-package org.Stech.SE5.config;
+package org.Stech.SE5.config.maintenance;
 
 import lombok.Getter;
 import lombok.Setter;
 
-import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.util.Arrays;
-import java.util.List;
 
 import java.awt.Rectangle;
-import java.awt.event.KeyEvent;
-import java.util.*;
 
 @Getter
 @Setter

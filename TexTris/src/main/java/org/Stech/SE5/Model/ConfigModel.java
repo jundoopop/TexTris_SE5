@@ -1,16 +1,9 @@
-package org.Stech.SE5.config;
+package org.Stech.SE5.Model;
 
 import java.awt.event.KeyEvent;
 import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-
-import java.awt.event.KeyEvent;
-import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
 
 public class ConfigModel {
     public enum GameMode {
@@ -154,7 +147,7 @@ public class ConfigModel {
 
     // Load JSON file
     private static final ObjectMapper objectMapper = new ObjectMapper();
-    private static final String path = "src/main/java/org/Stech/SE5/config/data/config.json";
+    private static final String path = "src/main/java/org/Stech/SE5/Model/data/config.json";
 
     public static void loadConfig() {
         try {

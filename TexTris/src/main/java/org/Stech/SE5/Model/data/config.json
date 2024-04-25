@@ -1,0 +1,15 @@
+{
+  "GameMode": "BASIC",
+  "GameDifficulty": "NORMAL",
+  "BoardSize": "MEDIUM",
+  "BoardWidth": 10,
+  "BoardHeight": 20,
+  "GameSpeed": 1.0,
+  "ColorBlindMode": false,
+  "KeyBindingLength": 7,
+  "moveBlockLeft": 65,
+  "moveBlockRight": 68,
+  "moveBlockDown": 83,
+  "clockwiseRotate": 87,
+  "dropBlockAtOnce": 32
+}

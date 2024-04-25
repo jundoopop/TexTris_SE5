@@ -1,6 +1,6 @@
 package org.Stech.SE5;
 
-import org.Stech.SE5.config.ConfigModel;
+import org.Stech.SE5.Model.ConfigModel;
 import org.Stech.SE5.presenter.ConfigPresenter;
 import org.Stech.SE5.presenter.Presenter;
 

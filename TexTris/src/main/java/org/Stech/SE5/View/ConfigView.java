@@ -1,7 +1,6 @@
-package org.Stech.SE5.view;
+package org.Stech.SE5.View;
 
-import org.Stech.SE5.App;
-import org.Stech.SE5.config.ConfigModel;
+import org.Stech.SE5.Model.ConfigModel;
 //import tetris.model.RecordModel;
 import org.Stech.SE5.presenter.ConfigPresenter;
 
@@ -14,7 +13,6 @@ import javax.swing.text.StyledDocument;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.util.Objects;
 
 public class ConfigView extends JFrame {
 
