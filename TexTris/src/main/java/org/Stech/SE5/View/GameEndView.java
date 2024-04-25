@@ -119,7 +119,7 @@ public class GameEndView extends JFrame {
 
                                                // Score Board 화면으로 이동하는 로직
                                                RecordModel.loadRecord();
-                                               RecordModel.addRecord(currentScore, 10,0,1, formattedDate, userName);
+                                               RecordModel.addRecord(currentScore, 10,currentGameMode,currentGameDifficulty, formattedDate, userName);
                                                RecordController record = new RecordController();
                                                record.setVisible(true);
 

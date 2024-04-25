@@ -7,6 +7,10 @@ import javax.swing.text.SimpleAttributeSet;
 import javax.swing.text.StyleConstants;
 import javax.swing.text.StyledDocument;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
 import org.Stech.SE5.Controller.RecordController;
@@ -93,7 +97,7 @@ public class RecordView extends JFrame {
 
 
         goToMainBtn = new JButton("Go To Main");
-        goToMainBtn.setBounds(WIDTH/4, HEIGHT-84, 190, 30);
+        goToMainBtn.setBounds(100, HEIGHT-84, WIDTH-210, 30);
         goToMainBtn.setBorderPainted(false); // 경계선이 보이지 않도록 설정
         goToMainBtn.setContentAreaFilled(true); //배경색이 보이도록 설정
         goToMainBtn.setBackground(Color.GRAY); //배경색은 회색
@@ -101,6 +105,32 @@ public class RecordView extends JFrame {
         goToMainBtn.setFont(new Font("Arial", Font.BOLD, 20)); //폰트 및 크기 설정
 
         recordPanel.add(goToMainBtn);
+
+        // 엔터키 입력을 처리하기 위한 KeyListener 추가
+        goToMainBtn.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+                    // Home 화면으로 이동하는 로직
+                    //HomeController.setVisible(true);
+
+                    // 현재 창을 숨김
+                    setVisible(false);
+                }
+            }
+        });
+
+        // 버튼 클릭 이벤트 처리
+        goToMainBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Home 화면으로 이동하는 로직
+                //HomeController.setVisible(true);
+
+                // 현재 창을 숨김
+                setVisible(false);
+            }
+        });
 
         recordList = new ArrayList<>();
 

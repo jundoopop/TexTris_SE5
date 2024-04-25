@@ -24,7 +24,7 @@ public class RecordModel {
 
         rankedRecords.add(new Record(id, score, deletedLine, gameMode, gameDifficulty, createdAt, name));
         Collections.sort(rankedRecords);
-        
+
         saveRecord();
     }
 
