@@ -1,17 +1,17 @@
 package org.Stech.SE5;
 
 import org.Stech.SE5.Model.ConfigModel;
-import org.Stech.SE5.presenter.ConfigPresenter;
-import org.Stech.SE5.presenter.Presenter;
+import org.Stech.SE5.Controller.ConfigController;
+import org.Stech.SE5.Controller.Controller;
 
-public class App {
+public class Main {
 
 
     public enum View {
         CONFIG
     }
 
-    protected App() {
+    protected Main() {
         throw new UnsupportedOperationException();
     }
 
@@ -19,11 +19,11 @@ public class App {
 //            RecordModel.loadRecord();
         ConfigModel.loadConfig();
 
-        ConfigPresenter configPresenter = new ConfigPresenter();
+        ConfigController configController = new ConfigController();
 
         // Set
-        Presenter currentPresenter = configPresenter;
-        currentPresenter.setVisible(true);
+        Controller currentController = configController;
+        currentController.setVisible(true);
     }
 
 //    public static void navigate(final View view) {

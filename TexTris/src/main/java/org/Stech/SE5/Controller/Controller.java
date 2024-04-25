@@ -1,6 +1,6 @@
-package org.Stech.SE5.presenter;
+package org.Stech.SE5.Controller;
 
-public interface Presenter {
+public interface Controller {
 
     void initPresent();
 

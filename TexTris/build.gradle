@@ -8,7 +8,7 @@ java {
 }
 
 application {
-    mainClass = 'org.Stech.SE5.App'
+    mainClass = 'org.Stech.SE5.Main'
 }
 
 group = 'org.Stech.SE5'

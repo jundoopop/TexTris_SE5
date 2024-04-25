@@ -1,12 +1,12 @@
-package org.Stech.SE5.presenter;
+package org.Stech.SE5.Controller;
 
 import org.Stech.SE5.View.ConfigView;
 
 
-public class ConfigPresenter implements Presenter {
+public class ConfigController implements Controller {
     private ConfigView configView;
 
-    public ConfigPresenter() {
+    public ConfigController() {
         initPresent();
     }
 

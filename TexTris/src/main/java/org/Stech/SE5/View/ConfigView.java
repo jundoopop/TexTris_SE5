@@ -2,7 +2,7 @@ package org.Stech.SE5.View;
 
 import org.Stech.SE5.Model.ConfigModel;
 //import tetris.model.RecordModel;
-import org.Stech.SE5.presenter.ConfigPresenter;
+import org.Stech.SE5.Controller.ConfigController;
 
 import javax.swing.*;
 import javax.swing.border.LineBorder;
@@ -44,7 +44,7 @@ public class ConfigView extends JFrame {
     private KeyBindListener keyBindListener;
 
 
-    public ConfigView(final ConfigPresenter presenter) {
+    public ConfigView(final ConfigController presenter) {
         super("TETRIS");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
