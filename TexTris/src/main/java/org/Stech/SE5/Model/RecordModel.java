@@ -3,12 +3,14 @@ package org.Stech.SE5.Model;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Random;
 
 import org.Stech.SE5.Data.Record;
 
 public class RecordModel {
     public static ArrayList<Record> rankedRecords = new ArrayList<Record>();
     private final static String path = "Data/record.txt";
+    public static int lastID = -1;
 
     public static void initRecord() {
         rankedRecords = new ArrayList<Record>();
@@ -16,8 +18,13 @@ public class RecordModel {
     }
     // 여기서 점수, 게임모드, 게임 난이도 불러오는 메소드 호출.
     public static void addRecord(int score, int deletedLine, int gameMode, int gameDifficulty, String createdAt, String name) {
-        rankedRecords.add(new Record(score, deletedLine, gameMode, gameDifficulty, createdAt, name));
+        Random rnd = new Random(System.currentTimeMillis());
+        int id = rnd.nextInt(1000000);
+        lastID = id;
+
+        rankedRecords.add(new Record(id, score, deletedLine, gameMode, gameDifficulty, createdAt, name));
         Collections.sort(rankedRecords);
+        
         saveRecord();
     }
 
@@ -45,6 +52,7 @@ public class RecordModel {
 
 
     public static void loadRecord() {
+        Random rnd = new Random(System.currentTimeMillis());
         try {
             File f = new File(path);
             FileReader fStream = new FileReader(f);
@@ -53,6 +61,7 @@ public class RecordModel {
             while ((line = bufReader.readLine()) != null) {
                 String[] record = line.split(",");
                 rankedRecords.add(new Record(
+                        rnd.nextInt(1000000),
                         Integer.parseInt(record[0]),
                         Integer.parseInt(record[1]),
                         Integer.parseInt(record[2]),

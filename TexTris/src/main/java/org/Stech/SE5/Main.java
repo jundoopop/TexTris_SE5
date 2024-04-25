@@ -8,7 +8,7 @@ public class Main {
     public static void main(String[] args) {
         //RecordModel.clearRecord();
 
-        GameEndView gameEnd = new GameEndView();
+        GameEndView gameEnd = new GameEndView(100, 0,0);
         gameEnd.setVisible(true);
 
         //record.setVisible(true);

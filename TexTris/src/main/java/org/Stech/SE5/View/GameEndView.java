@@ -15,11 +15,15 @@ import java.awt.event.ActionListener;
 public class GameEndView extends JFrame {
     private JTextField userNameField;
 
-    public GameEndView() {
+    public GameEndView(int score, int gameMode, int gameDifficulty) {
         LocalDate date = LocalDate.now();
         String formattedDate = String.format("%02d%02d", date.getMonthValue(), date.getDayOfMonth());
 
-        int resolution = 2; // 해상도 설정시 값을 불러와서 대입.
+        int currentScore = score;
+        int currentGameMode = gameMode;
+        int currentGameDifficulty = gameDifficulty;
+
+        int resolution = 1; // 해상도 설정시 값을 불러와서 대입.
 
         int WIDTH;
         int HEIGHT;
@@ -65,7 +69,6 @@ public class GameEndView extends JFrame {
         backgroundPanel.add(gameEndTitle);
 
         // 점수 표시
-        int currentScore = 100;
         JLabel scoreLabel = new JLabel("Your score: " + currentScore);
         scoreLabel.setBounds(98, 100, WIDTH-200, 30);
         scoreLabel.setFont(new Font("Bold", Font.BOLD, 20));
@@ -98,7 +101,7 @@ public class GameEndView extends JFrame {
 
                     // Score Board 화면으로 이동하는 로직
                     RecordModel.loadRecord();
-                    RecordModel.addRecord(currentScore, 10, 0,1,formattedDate, userName);
+                    RecordModel.addRecord(currentScore, 10, currentGameMode,currentGameDifficulty,formattedDate, userName);
                     RecordController record = new RecordController();
                     record.setVisible(true);
 

@@ -23,7 +23,7 @@ public class RecordView extends JFrame {
         recordController = controller;
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        int resolution = 2; // 해상도 설정시 값을 불러와서 대입.
+        int resolution = 1; // 해상도 설정시 값을 불러와서 대입.
 
         int WIDTH;
         int HEIGHT;
@@ -136,6 +136,8 @@ public class RecordView extends JFrame {
             individualRecord.setEditable(false);
             individualRecord.setBackground(Color.DARK_GRAY);
             individualRecord.setForeground(Color.GREEN);
+            if(RecordModel.rankedRecords.get(i).id == RecordModel.lastID)
+                individualRecord.setForeground(Color.PINK);
             individualRecord.setFont(new Font("Arial", Font.CENTER_BASELINE, 15));
 
             StyledDocument docRecord = individualRecord.getStyledDocument();

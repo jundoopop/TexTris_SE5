@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class RecordController {
     private RecordView recordView;
 
-    int resolution = 2; // 해상도 설정시 값을 불러와서 대입.
+    int resolution = 1; // 해상도 설정시 값을 불러와서 대입.
 
     int WIDTH;
     int HEIGHT;
