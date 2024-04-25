@@ -66,6 +66,7 @@ public class ConfigView extends JFrame {
         borderSizeSetPanel.add(borderSizeSetLabel);
 
 
+        // Buttons - Set game border size
         JButton smallBtn = new JButton("Small");
         JButton mediumBtn = new JButton("Medium");
         JButton largeBtn = new JButton("Large");
@@ -387,17 +388,17 @@ public class ConfigView extends JFrame {
 
     class KeyBindListener implements KeyListener {
         @Override
-        public void keyTyped(final KeyEvent e) {
+        public void keyTyped(KeyEvent e) { // empty
 
         }
 
         @Override
-        public void keyPressed(final KeyEvent e) {
+        public void keyPressed(KeyEvent e) {
             lastKeyEvent = e;
         }
 
         @Override
-        public void keyReleased(final KeyEvent e) {
+        public void keyReleased(KeyEvent e) {
 
         }
     }
