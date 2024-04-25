@@ -45,7 +45,6 @@ public class RecordView extends JFrame {
                 HEIGHT = 600;
         }
 
-
         this.setSize(WIDTH,HEIGHT);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -94,7 +93,7 @@ public class RecordView extends JFrame {
 
 
         goToMainBtn = new JButton("Go To Main");
-        goToMainBtn.setBounds(WIDTH/4, HEIGHT-100, 190, 40);
+        goToMainBtn.setBounds(WIDTH/4, HEIGHT-84, 190, 30);
         goToMainBtn.setBorderPainted(false); // 경계선이 보이지 않도록 설정
         goToMainBtn.setContentAreaFilled(true); //배경색이 보이도록 설정
         goToMainBtn.setBackground(Color.GRAY); //배경색은 회색
@@ -106,7 +105,7 @@ public class RecordView extends JFrame {
         recordList = new ArrayList<>();
 
         System.out.println(RecordModel.rankedRecords.size());
-        for(int i=0; i<Math.min(RecordModel.rankedRecords.size(), 11); i++) {
+        for(int i=0; i<Math.min(RecordModel.rankedRecords.size(), (10+resolution*4)); i++) {
             recordList.add(new JTextPane());
 
             // gameDifficulty 값을 문자열로 변환하여 저장

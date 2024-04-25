@@ -11,12 +11,6 @@ public class Main {
         GameEndView gameEnd = new GameEndView();
         gameEnd.setVisible(true);
 
-
-        //RecordModel.loadRecord();
-        //RecordController record = new RecordController();
-        //RecordModel.addRecord(10,10, "240409","KST");
-        //RecordModel.addRecord(20,20,"240419","name");
-
         //record.setVisible(true);
 
 

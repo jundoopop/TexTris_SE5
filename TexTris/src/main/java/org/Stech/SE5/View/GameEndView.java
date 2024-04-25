@@ -95,12 +95,13 @@ public class GameEndView extends JFrame {
             public void keyPressed(KeyEvent e) {
                 if (e.getKeyCode() == KeyEvent.VK_ENTER) {
                     String userName = userNameField.getText();
-                    // Score Board 화면으로 이동하는 로직
 
+                    // Score Board 화면으로 이동하는 로직
                     RecordModel.loadRecord();
-                    RecordController record = new RecordController();
                     RecordModel.addRecord(currentScore, 10, 0,1,formattedDate, userName);
+                    RecordController record = new RecordController();
                     record.setVisible(true);
+
                     // 현재 창을 숨김
                     setVisible(false);
                 }
@@ -112,12 +113,13 @@ public class GameEndView extends JFrame {
                                            @Override
                                            public void actionPerformed(ActionEvent e) {
                                                String userName = userNameField.getText();
-                                               // Score Board 화면으로 이동하는 로직
 
+                                               // Score Board 화면으로 이동하는 로직
                                                RecordModel.loadRecord();
-                                               RecordController record = new RecordController();
                                                RecordModel.addRecord(currentScore, 10,0,1, formattedDate, userName);
+                                               RecordController record = new RecordController();
                                                record.setVisible(true);
+
                                                // 현재 창을 숨김
                                                setVisible(false);
                                            }
