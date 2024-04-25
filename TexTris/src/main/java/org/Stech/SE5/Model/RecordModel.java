@@ -14,8 +14,9 @@ public class RecordModel {
         rankedRecords = new ArrayList<Record>();
         saveRecord();
     }
-    public static void addRecord(int score, int deletedLine, String createdAt, String name) {
-        rankedRecords.add(new Record(score, deletedLine, createdAt, name));
+    // 여기서 점수, 게임모드, 게임 난이도 불러오는 메소드 호출.
+    public static void addRecord(int score, int deletedLine, int gameMode, int gameDifficulty, String createdAt, String name) {
+        rankedRecords.add(new Record(score, deletedLine, gameMode, gameDifficulty, createdAt, name));
         Collections.sort(rankedRecords);
         saveRecord();
     }
@@ -31,8 +32,8 @@ public class RecordModel {
             for (int i = 0; i < rankedRecords.size(); i++) {
                 out.write(rankedRecords.get(i).score + ",");
                 out.write(rankedRecords.get(i).deletedLine + ",");
-                //out.write(rankedRecords.get(i).gameMode + ",");
-                //out.write(rankedRecords.get(i).gameDifficulty + ",");
+                out.write(rankedRecords.get(i).gameMode + ",");
+                out.write(rankedRecords.get(i).gameDifficulty + ",");
                 out.write(rankedRecords.get(i).createdAt + ",");
                 out.write(rankedRecords.get(i).name + "\n");
             }
@@ -54,10 +55,11 @@ public class RecordModel {
                 rankedRecords.add(new Record(
                         Integer.parseInt(record[0]),
                         Integer.parseInt(record[1]),
-                        record[2],
-                        record[3]));
-                        //record[4],
-                        //record[5]
+                        Integer.parseInt(record[2]),
+                        Integer.parseInt(record[3]),
+                        record[4],
+                        record[5])
+                );
             }
             bufReader.close();
         } catch (IOException e) {

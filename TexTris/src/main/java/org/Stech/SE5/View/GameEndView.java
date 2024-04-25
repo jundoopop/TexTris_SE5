@@ -17,15 +17,38 @@ public class GameEndView extends JFrame {
 
     public GameEndView() {
         LocalDate date = LocalDate.now();
+        String formattedDate = String.format("%02d%02d", date.getMonthValue(), date.getDayOfMonth());
+
+        int resolution = 2; // 해상도 설정시 값을 불러와서 대입.
+
+        int WIDTH;
+        int HEIGHT;
+        switch (resolution) {
+            case 0:
+                WIDTH = 400;
+                HEIGHT = 600;
+                break;
+            case 1:
+                WIDTH = 500;
+                HEIGHT = 750;
+                break;
+            case 2:
+                WIDTH = 600;
+                HEIGHT = 900;
+                break;
+            default:
+                WIDTH = 400;
+                HEIGHT = 600;
+        }
 
         setTitle("Game End");
-        setSize(400, 600);
+        setSize(WIDTH, HEIGHT);
         setLayout(null);
         setLocationRelativeTo(null); // 창을 화면 가운데에 위치시킵니다.
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         JPanel backgroundPanel = new JPanel();
-        backgroundPanel.setBounds(0, 0, 400, 600);
+        backgroundPanel.setBounds(0, 0, WIDTH, HEIGHT);
         backgroundPanel.setBackground(Color.BLACK);
         backgroundPanel.setLayout(null);
         backgroundPanel.setLocation(0, 0); // 창을 화면 가운데에 위치시킵니다.
@@ -34,7 +57,7 @@ public class GameEndView extends JFrame {
 
         // 게임 종료 메시지
         JLabel gameEndTitle = new JLabel("Game End");
-        gameEndTitle.setBounds(20, 20, 354, 60);
+        gameEndTitle.setBounds(20, 20, WIDTH-46, 60);
         gameEndTitle.setFont(new Font("Bold", Font.BOLD, 30));
         gameEndTitle.setBackground(Color.DARK_GRAY);
         gameEndTitle.setForeground(Color.GREEN);
@@ -44,7 +67,7 @@ public class GameEndView extends JFrame {
         // 점수 표시
         int currentScore = 100;
         JLabel scoreLabel = new JLabel("Your score: " + currentScore);
-        scoreLabel.setBounds(98, 100, 200, 30);
+        scoreLabel.setBounds(98, 100, WIDTH-200, 30);
         scoreLabel.setFont(new Font("Bold", Font.BOLD, 20));
         scoreLabel.setBackground(Color.DARK_GRAY);
         scoreLabel.setForeground(Color.GREEN);
@@ -53,13 +76,13 @@ public class GameEndView extends JFrame {
 
         // 사용자 이름 입력 필드
         userNameField = new JTextField();
-        userNameField.setBounds(98, 150, 200, 50);
+        userNameField.setBounds(98, 150, WIDTH-200, 50);
         userNameField.setBackground(Color.GRAY);
         backgroundPanel.add(userNameField);
 
         // 점수 기록 버튼
         JButton recordButton = new JButton("Record Score");
-        recordButton.setBounds(100, 400, 200, 50);
+        recordButton.setBounds(100, HEIGHT-200, WIDTH-200, 50);
         recordButton.setBackground(Color.GRAY);
         recordButton.setForeground(Color.GREEN);
         backgroundPanel.add(recordButton);
@@ -76,7 +99,7 @@ public class GameEndView extends JFrame {
 
                     RecordModel.loadRecord();
                     RecordController record = new RecordController();
-                    RecordModel.addRecord(currentScore, 10, String.valueOf(date), userName);
+                    RecordModel.addRecord(currentScore, 10, 0,1,formattedDate, userName);
                     record.setVisible(true);
                     // 현재 창을 숨김
                     setVisible(false);
@@ -93,7 +116,7 @@ public class GameEndView extends JFrame {
 
                                                RecordModel.loadRecord();
                                                RecordController record = new RecordController();
-                                               RecordModel.addRecord(currentScore, 10, String.valueOf(date), userName);
+                                               RecordModel.addRecord(currentScore, 10,0,1, formattedDate, userName);
                                                record.setVisible(true);
                                                // 현재 창을 숨김
                                                setVisible(false);

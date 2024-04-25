@@ -8,11 +8,35 @@ import java.util.ArrayList;
 
 public class RecordController {
     private RecordView recordView;
-    private final int VIEW_WIDTH = 400;
-    private final int VIEW_HEIGHT = 600;
+
+    int resolution = 2; // 해상도 설정시 값을 불러와서 대입.
+
+    int WIDTH;
+    int HEIGHT;
 
     public RecordController() {
+        initResolution();
         initController();
+    }
+
+    private void initResolution() {
+        switch (resolution) {
+            case 0:
+                WIDTH = 400;
+                HEIGHT = 600;
+                break;
+            case 1:
+                WIDTH = 500;
+                HEIGHT = 750;
+                break;
+            case 2:
+                WIDTH = 600;
+                HEIGHT = 900;
+                break;
+            default:
+                WIDTH = 400;
+                HEIGHT = 600;
+        }
     }
 
     public void initController() {
@@ -21,7 +45,7 @@ public class RecordController {
 
     public void setVisible(boolean visible) {
         if (visible) {
-            recordView.setSize(VIEW_WIDTH, VIEW_HEIGHT);
+            recordView.setSize(WIDTH, HEIGHT);
             recordView.setLocationRelativeTo(null);
             recordView.setVisible(true);
         } else {
